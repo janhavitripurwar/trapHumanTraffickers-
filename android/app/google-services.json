@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "47976658386",
+    "project_id": "humantraffikers",
+    "storage_bucket": "humantraffikers.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47976658386:android:05c11b9f445b7e4b45840b",
+        "android_client_info": {
+          "package_name": "com.example.traptrafikkers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47976658386-rkn0g6sk92fs2hnrhv4uo49fdl29f886.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcE-sr6onF11r3GTTFy1URYrDmuwzo-Wk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47976658386-rkn0g6sk92fs2hnrhv4uo49fdl29f886.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
