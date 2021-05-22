@@ -44,4 +44,12 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    <!--for recording permission -->
+    <!--permission required for microphone access -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!-- req bcoz speech recognition may use remote services-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 </manifest>

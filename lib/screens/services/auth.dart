@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:traptrafikkers/models/user.dart';
 import 'package:traptrafikkers/screens/services/database.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+ static String  UID="";                    //global string used for setting document id same as user.uid
 
   //create user object based on FirebaseUser
   User _userFromFirebaseUser(FirebaseUser user){
@@ -35,9 +37,6 @@ Future signInAnon () async {
       AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
 
-      //create a new document for the user with uid
-      await DatabaseService(uid: user.uid).updateUserData('0', '0', '0');
-
       return _userFromFirebaseUser(user);
     }catch(e){
       print(e.toString());
@@ -50,6 +49,14 @@ Future signInAnon () async {
     try{
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
+     // print('user.uid is : ');
+      //print(user.uid);
+      UID = user.uid;
+      // print('UID FROM REGISTER');
+      // print(UID);
+      //create a new document for the user with uid
+      //await DatabaseService(uid: user.uid).updateUserData('0', '0', '0');
+
       return _userFromFirebaseUser(user);
     }catch(e){
       print(e.toString());
@@ -61,6 +68,18 @@ Future signInAnon () async {
   Future signOut() async{
     try{
       return await _auth.signOut();
+    }catch(e){
+      print(e.toString());
+      return null;
+    }
+  }
+  //adding trusted contacts to collection with doc id==user id
+  Future updateDocument(String contact1,String contact2,String contact3) async{
+    try{
+      print('UID Is :');
+      //print(UID);
+       await DatabaseService(uid: UID).updateUserData(contact1,contact2,contact3);
+       return UID;
     }catch(e){
       print(e.toString());
       return null;

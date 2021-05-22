@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:traptrafikkers/screens/home/contacts.dart';
 import 'package:traptrafikkers/screens/services/auth.dart';
+import 'package:traptrafikkers/screens/home/record.dart';
+import 'package:traptrafikkers/screens/home/speechToText.dart';
 
 class Home extends StatelessWidget {
   final AuthService _auth = AuthService();
@@ -32,14 +34,18 @@ class Home extends StatelessWidget {
               RaisedButton(
                   color: Colors.pink[400],
                   child: Text('Record ', style: TextStyle(color: Colors.white,fontSize: 20.0)),
-                  onPressed: () async {}
+                  onPressed: () async {
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => SpeechToText()
+                    ));
+                  }
               ),
               SizedBox(height: 42.0),
               RaisedButton(
                   color: Colors.pink[400],
                   child: Text('My Trusted Contacts', style: TextStyle(color: Colors.white,fontSize: 20.0),),
                   onPressed: () async {
-                    Navigator.pushReplacement(context, MaterialPageRoute(
+                    Navigator.push(context, MaterialPageRoute(
                         builder: (context) => Contacts()
                     ));
                   }
