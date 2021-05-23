@@ -77,7 +77,7 @@ Future signInAnon () async {
   Future updateDocument(String contact1,String contact2,String contact3) async{
     try{
       print('UID Is :');
-      //print(UID);
+      print(UID);
        await DatabaseService(uid: UID).updateUserData(contact1,contact2,contact3);
        return UID;
     }catch(e){

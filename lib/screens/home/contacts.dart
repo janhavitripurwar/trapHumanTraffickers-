@@ -13,9 +13,7 @@ class _ContactsState extends State<Contacts> {
   final AuthService _auth = AuthService();
  String error="";
  String win="";
- String contact1="";
- String contact2="";
- String contact3="";
+ String contact1="", contact2="", contact3="";
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +32,7 @@ class _ContactsState extends State<Contacts> {
                 SizedBox(height: 20.0),
                 TextFormField(
                   decoration:textInputDecoration.copyWith(hintText: 'Contact 1'),
+                 // validator: (val) => val.length!=10 ? "Enter valid mobile number " : null,
                   onChanged: (val){
                     setState(() => contact1 =val);
                   },
@@ -41,6 +40,7 @@ class _ContactsState extends State<Contacts> {
                 SizedBox(height: 20.0),
                 TextFormField(
                   decoration:textInputDecoration.copyWith(hintText: 'Contact 2'),
+                 // validator: (val) => val.length!=10 ? "Enter valid mobile number " : null,
                   onChanged: (val){
                     setState(() => contact2 =val);
                   },
@@ -48,6 +48,7 @@ class _ContactsState extends State<Contacts> {
                 SizedBox(height: 20.0),
                 TextFormField(
                   decoration:textInputDecoration.copyWith(hintText: 'Contact 3'),
+                 // validator: (val) => val.length!=10 ? "Enter valid mobile number " : null,
                   onChanged: (val){
                     setState(() => contact3 =val);
                   },
@@ -58,9 +59,9 @@ class _ContactsState extends State<Contacts> {
                     child: Text('Done', style: TextStyle(color: Colors.white),),
                     onPressed: () async {
                      dynamic result = await _auth.updateDocument(contact1, contact2, contact3);
-                     print('result is :');
-                     print(result);
-                     print(error);
+                     // print('result is :');
+                     // print(result);
+                     // print(error);
                      if(result==null){
                        setState(() {
                          error = 'failed';
